@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "australium:australium_ore"
+  },
+  "result": "australium:australium_ingot",
+  "experience": 1.0,
+  "cookingtime": 100
+}

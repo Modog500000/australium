@@ -1,9 +1,6 @@
 package org.modogthedev.australium.core;
 
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.*;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -22,5 +19,7 @@ public class ModItems {
     public static final RegistryObject<Item> AUSTRALIUM_ORE = ITEMS.register("australium_ore", () -> new BlockItem(ModBlocks.AUSTRALIUM_ORE.get(), new Item.Properties().tab(TAB)));
     public static final RegistryObject<Item> AUSTRALIUM_BLOCK = ITEMS.register("australium_block", () -> new BlockItem(ModBlocks.AUSTRALIUM_BLOCK.get(), new Item.Properties().tab(TAB)));
     public static final RegistryObject<Item> RAW_AUSTRALIUM = ITEMS.register("raw_australium", () -> new Item(new Item.Properties().fireResistant().tab(TAB)));
-    public static final RegistryObject<Item> AUSTRALIUM_PAN = ITEMS.register("australium_pan", () -> new AustraliumPan(new Item.Properties().fireResistant().tab(TAB).durability(124)));
+    public static final RegistryObject<Item> AUSTRALIUM_INGOT = ITEMS.register("australium_ingot", () -> new Item(new Item.Properties().fireResistant().tab(TAB)));
+    public static final RegistryObject<SwordItem> AUSTRALIUM_PAN = ITEMS.register("australium_pan", () -> new AustraliumPan(new Item.Properties().tab(TAB)));
+
 }

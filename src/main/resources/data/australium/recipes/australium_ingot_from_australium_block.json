@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "australium:australium_block"
+    }
+  ],
+  "result": {
+    "item": "australium:australium_ingot",
+    "count": 9
+  }
+}

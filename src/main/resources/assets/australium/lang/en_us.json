@@ -2,6 +2,7 @@
   "block.australium.australium_ore": "Australium Ore",
   "block.australium.australium_block": "Australium Block",
   "item.australium.raw_australium": "Raw Australium",
+  "item.australium.australium_ingot": "Australium Ingot",
   "item.australium.australium_pan": "Australium Frying Pan",
 
   "itemGroup.australium" : "Australium"
