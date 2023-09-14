@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "australium:block/australium_block"
+    }
+  }
+}
