@@ -3,14 +3,11 @@
   "pattern": [
     "###",
     "###",
-    " / "
+    " # "
   ],
   "key": {
     "#": {
       "item": "australium:australium_ingot"
-    },
-    "/": {
-      "tag": "australium:stick"
     }
   },
   "result": {
