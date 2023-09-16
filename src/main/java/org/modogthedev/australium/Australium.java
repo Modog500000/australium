@@ -24,10 +24,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-import org.modogthedev.australium.core.ModBlocks;
-import org.modogthedev.australium.core.ModConfiguredFeature;
-import org.modogthedev.australium.core.ModItems;
-import org.modogthedev.australium.core.ModPlacedFeature;
+import org.modogthedev.australium.core.*;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -54,6 +51,7 @@ public class Australium {
         ModItems.ITEMS.register(modEventBus);
         ModConfiguredFeature.CONFIGURED_FEATURES.register(modEventBus);
         ModPlacedFeature.PLACED_FEATURES.register(modEventBus);
+        ModSounds.SOUND_EVENTS.register(modEventBus);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {

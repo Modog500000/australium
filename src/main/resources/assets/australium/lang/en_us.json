@@ -4,6 +4,9 @@
   "item.australium.raw_australium": "Raw Australium",
   "item.australium.australium_ingot": "Australium Ingot",
   "item.australium.australium_pan": "Australium Frying Pan",
+  "item.australium.australium_pan": "Australium Knife",
+
+  "sounds.australium.bonk" : "Bonk",
 
   "itemGroup.australium" : "Australium"
 }
