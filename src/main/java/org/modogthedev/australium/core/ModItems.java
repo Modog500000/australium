@@ -6,6 +6,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.modogthedev.australium.Australium;
 import org.modogthedev.australium.common.items.AustraliumKnife;
+import org.modogthedev.australium.common.items.AustraliumMedigun;
 import org.modogthedev.australium.common.items.AustraliumPan;
 
 public class ModItems {
@@ -23,5 +24,6 @@ public class ModItems {
     public static final RegistryObject<Item> AUSTRALIUM_INGOT = ITEMS.register("australium_ingot", () -> new Item(new Item.Properties().fireResistant().tab(TAB)));
     public static final RegistryObject<SwordItem> AUSTRALIUM_PAN = ITEMS.register("australium_pan", () -> new AustraliumPan(new Item.Properties().tab(TAB)));
     public static final RegistryObject<SwordItem> AUSTRALIUM_KNIFE = ITEMS.register("australium_knife", () -> new AustraliumKnife(new Item.Properties().tab(TAB)));
+    public static final RegistryObject<Item> AUSTRALIUM_MEDIGUN = ITEMS.register("australium_medigun", () -> new AustraliumMedigun(new Item.Properties().tab(TAB)));
 
 }

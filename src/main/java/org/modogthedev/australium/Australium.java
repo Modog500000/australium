@@ -52,6 +52,7 @@ public class Australium {
         ModConfiguredFeature.CONFIGURED_FEATURES.register(modEventBus);
         ModPlacedFeature.PLACED_FEATURES.register(modEventBus);
         ModSounds.SOUND_EVENTS.register(modEventBus);
+        ModParticles.PARTICLE_TYPES.register(modEventBus);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {

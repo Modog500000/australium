@@ -5,8 +5,11 @@
   "item.australium.australium_ingot": "Australium Ingot",
   "item.australium.australium_pan": "Australium Frying Pan",
   "item.australium.australium_knife": "Australium Knife",
+  "item.australium.australium_medigun": "Australium Medi Gun",
 
   "sounds.australium.bonk" : "Bonk",
+  "sounds.australium.crit" : "Critical Hit",
+  "sounds.australium.medigun" : "Medigun Activates",
 
   "itemGroup.australium" : "Australium"
 }

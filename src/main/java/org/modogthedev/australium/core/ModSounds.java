@@ -12,6 +12,8 @@ public class ModSounds {
     public static final DeferredRegister<SoundEvent> SOUND_EVENTS = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, Australium.MODID);
 
     public static final RegistryObject<SoundEvent> BONK = registerSoundEvent("bonk");
+    public static final RegistryObject<SoundEvent> CRIT = registerSoundEvent("crit");
+    public static final RegistryObject<SoundEvent> MEDIGUN = registerSoundEvent("medigun");
 
     private static RegistryObject<SoundEvent> registerSoundEvent(String name) {
         ResourceLocation id = new ResourceLocation(Australium.MODID, name);
