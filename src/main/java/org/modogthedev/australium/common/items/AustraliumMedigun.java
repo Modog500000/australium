@@ -8,6 +8,7 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -39,11 +40,11 @@ public class AustraliumMedigun extends Item {
         Vec3 vector3d1 = vector3d.add((double)f6 * range, (double)f5 * range, (double)f7 * range);
         return world.clip(new ClipContext(vector3d, vector3d1, ClipContext.Block.OUTLINE, fluidMode, player));
     }
-    private void spawnFoundParticles(LivingEntity pContext, BlockPos positionClicked) {
+    private void spawnFoundParticles(LivingEntity entity) {
         for(int i = 0; i < 360; i++) {
             if(i % 20 == 0) {
-                pContext.getLevel().addParticle(ModParticles.MEDIGUN_PARTICLE.get(),
-                        positionClicked.getX() + 0.5d, positionClicked.getY() + 1, positionClicked.getZ() + 0.5d,
+                entity.getLevel().addParticle(ModParticles.MEDIGUN_PARTICLE.get(),
+                        entity.getX(), entity.getY() + 1, entity.getZ(),
                         Math.cos(i) * 0.15d, 0.15d, Math.sin(i) * 0.15d);
             }
         }
@@ -56,16 +57,17 @@ public class AustraliumMedigun extends Item {
     }
 
     @Override
-    public InteractionResult interactLivingEntity(ItemStack p_41398_, Player player, LivingEntity enemy, InteractionHand p_41401_) {
-        if (enemy.getHealth()+0.0005 <= enemy.getMaxHealth()) {
+    public InteractionResult interactLivingEntity(ItemStack item, Player player, LivingEntity enemy, InteractionHand p_41401_) {
             if (enemy.getHealth() >= 0) {
-                enemy.setHealth(enemy.getHealth() + 0.0005F);
-                spawnFoundParticles(enemy,enemy.blockPosition());
-                enemy.playSound(ModSounds.MEDIGUN.get(), 1.0F, 1.0F);
-                enemy.getLevel().addParticle(ParticleTypes.WITCH, 2d, 2d, 3d, 4d, 2d, 2d);
+                if ((enemy.getMaxHealth()) > (enemy.getHealth()+.1)) {
+                    if (!(player.getCooldowns().isOnCooldown(item.getItem()))) {
+                        player.getCooldowns().addCooldown(this, 20);
+                        spawnFoundParticles(enemy);
+                        enemy.playSound(ModSounds.MEDIGUN.get(), 1.0F, 1.0F);
+                        enemy.setHealth(enemy.getHealth() + 1);
+                    }
+                }
             }
-        }
-        enemy.setHealth(enemy.getHealth()+1);
-        return super.interactLivingEntity(p_41398_, player, enemy, p_41401_);
+        return super.interactLivingEntity(item, player, enemy, p_41401_);
     }
 }
