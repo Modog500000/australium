@@ -25,8 +25,7 @@ import org.slf4j.Logger;
 public class AustraliumMedigun extends Item {
     private static final Logger LOGGER = LogUtils.getLogger();
     public AustraliumMedigun(Properties properties) { super(properties); }
-    protected static BlockHitResult rayTrace(Level world, Player player, ClipContext.Fluid fluidMode) {
-        double range = 10;
+    protected static BlockHitResult rayTrace(Level world, Player player, Double range, ClipContext.Fluid fluidMode) {
 
         float f = player.getXRot();
         float f1 = player.getYRot();
@@ -49,12 +48,6 @@ public class AustraliumMedigun extends Item {
             }
         }
     }
-    @Override
-    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand p_41434_) {
-        BlockHitResult ray = rayTrace(level, player, ClipContext.Fluid.NONE);
-        BlockPos lookPos = ray.getBlockPos();
-        return super.use(level, player, p_41434_);
-    }
 
     @Override
     public InteractionResult interactLivingEntity(ItemStack item, Player player, LivingEntity enemy, InteractionHand p_41401_) {
@@ -65,8 +58,17 @@ public class AustraliumMedigun extends Item {
                         spawnFoundParticles(enemy);
                         enemy.playSound(ModSounds.MEDIGUN.get(), 1.0F, 1.0F);
                         enemy.setHealth(enemy.getHealth() + 1);
+
                     }
                 }
+                    double f1 = ((enemy.getX()-player.getX())/10);
+                    double f2 = ((enemy.getY()-player.getY())/10);
+                    double f3 = ((enemy.getZ()-player.getZ())/10);
+                    player.getLevel().addParticle(ModParticles.MEDIGUN_PARTICLE.get(),player.getX(),player.getY()+1,player.getZ(),f1,f2,f3);
+                    LOGGER.info(String.valueOf(f1));
+                    LOGGER.info(String.valueOf(f2));
+                    LOGGER.info(String.valueOf(f3));
+                    LOGGER.info(" ");
             }
         return super.interactLivingEntity(item, player, enemy, p_41401_);
     }
